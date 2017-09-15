@@ -62,7 +62,10 @@ class ViewCompilerCommand extends Command
         Blade::extend(function ($value, $compiler) {
             $context = new MinifyContext(new PlaceholderContainer());
             $minifier = $this->laravel->make('blade.compiler.min');
-            $this->minifyContext = $minifier->run($context->setContents($value), $this->option());
+            $options = Collection::make($this->options())->filter(function($value, $key){
+                return $value;
+            });
+            $this->minifyContext = $minifier->run($context->setContents($value), $options);
 
             return $this->minifyContext->getContents();
         });

@@ -25,9 +25,6 @@ class BladePlaceholderTest extends PHPUnit_Framework_TestCase
         $placeholderContainer = m::mock(PlaceholderContainer::class)->shouldReceive('addPlaceholder')->andReturn($placeholder)->getMock();
         $context = new MinifyContext($placeholderContainer);
 
-        $tags = [['{{', '}}']];
-        BladePlaceholder::setBladeTags($tags);
-
         $result = $this->bladePlaceholder->process($context->setContents('@{{ echo \'test\';}}'));
         $this->assertEquals($placeholder, $result->getContents());
 
@@ -47,9 +44,6 @@ class BladePlaceholderTest extends PHPUnit_Framework_TestCase
         $placeholder = 'myPlaceholder';
         $placeholderContainer = m::mock(PlaceholderContainer::class)->shouldReceive('addPlaceholder')->andReturn($placeholder)->getMock();
         $context = new MinifyContext($placeholderContainer);
-
-        $tags = [['{{', '}}']];
-        BladePlaceholder::setBladeTags($tags);
 
         $result = $this->bladePlaceholder->process($context->setContents('@if(true)'));
         $this->assertEquals($placeholder, $result->getContents());
