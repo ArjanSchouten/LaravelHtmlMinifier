@@ -10,8 +10,8 @@ use ArjanSchouten\HtmlMinifier\PlaceholderContainer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Engines\CompilerEngine;
+use Illuminate\View\Factory;
 use InvalidArgumentException;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -60,8 +60,6 @@ class ViewCompilerCommand extends Command
     protected function setupCompiler()
     {
         Blade::extend(function ($value, $compiler) {
-            BladePlaceholder::setBladeTags($this->getBladeTags($compiler));
-
             $context = new MinifyContext(new PlaceholderContainer());
             $minifier = $this->laravel->make('blade.compiler.min');
             $this->minifyContext = $minifier->run($context->setContents($value), $this->option());
@@ -71,34 +69,13 @@ class ViewCompilerCommand extends Command
     }
 
     /**
-     * Get the blade tags which might be overruled by user.
-     *
-     * @param \Illuminate\View\Compilers\BladeCompiler $bladeCompiler
-     *
-     * @return array
-     */
-    private function getBladeTags(BladeCompiler $bladeCompiler)
-    {
-        $contentTags = $bladeCompiler->getContentTags();
-
-        $tags = [
-            $contentTags,
-            $bladeCompiler->getRawTags(),
-            $bladeCompiler->getEscapedContentTags(),
-            [$contentTags[0].'--', '--'.$contentTags[1]],
-        ];
-
-        return $tags;
-    }
-
-    /**
      * Find and compile all the views.
      *
      * @return void
      */
     protected function compileViews()
     {
-        foreach ($this->laravel['view']->getFinder()->getPaths() as $path) {
+        foreach ($this->laravel->make(Factory::class)->getFinder()->getPaths() as $path) {
             foreach ($this->laravel['files']->allFiles($path) as $file) {
                 try {
                     $this->compileView($file);

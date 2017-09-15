@@ -3,7 +3,6 @@
 namespace ArjanSchouten\LaravelHtmlMinifier;
 
 use ArjanSchouten\HtmlMinifier\Minify;
-use ArjanSchouten\HtmlMinifier\Placeholders\Blade\BladePlaceholder;
 use Exception;
 use Illuminate\Support\ServiceProvider;
 

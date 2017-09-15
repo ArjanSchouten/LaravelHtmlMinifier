@@ -10,7 +10,7 @@ class BladePlaceholder implements PlaceholderInterface
     /**
      * @var array
      */
-    private static $tags = [
+    protected static $tags = [
         ['{{{', '}}}'],
         ['{!!', '!!}'],
         ['{--', '--}'],
@@ -70,25 +70,5 @@ class BladePlaceholder implements PlaceholderInterface
         return preg_replace_callback('/@\w*(\s*\(.*\))?/', function ($match) use ($placeholderContainer) {
             return $placeholderContainer->addPlaceholder($match[0]);
         }, $contents);
-    }
-
-    /**
-     * Get blade tags.
-     *
-     * @return array
-     */
-    public static function getBladeTags()
-    {
-        return self::$tags;
-    }
-
-    /**
-     * Set blade tags.
-     *
-     * @param array $tags
-     */
-    public static function setBladeTags(array $tags)
-    {
-        self::$tags = $tags;
     }
 }
