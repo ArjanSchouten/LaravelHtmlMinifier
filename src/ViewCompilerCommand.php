@@ -7,7 +7,6 @@ use ArjanSchouten\HtmlMinifier\MinifyContext;
 use ArjanSchouten\HtmlMinifier\Option;
 use ArjanSchouten\HtmlMinifier\Options;
 use ArjanSchouten\HtmlMinifier\PlaceholderContainer;
-use ArjanSchouten\HtmlMinifier\Placeholders\Blade\BladePlaceholder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
