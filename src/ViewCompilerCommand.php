@@ -28,11 +28,11 @@ class ViewCompilerCommand extends Command
     protected $minifyContext;
 
     /**
-     * Fire event and compile and minify the views.
+     * Compile and minify the views when executing this commands.
      *
      * @return void
      */
-    public function fire()
+    public function handle()
     {
         $this->info('Going to minify your views. Just a few seconds...');
 
@@ -43,6 +43,14 @@ class ViewCompilerCommand extends Command
         $this->info('Yeah! Your views are minified!');
 
         $this->createMinifyOutput();
+    }
+
+    /**
+     * @deprecated Since Laravel 5.5
+     */
+    public function fire()
+    {
+        $this->handle();
     }
 
     /**

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ArjanSchouten/HtmlMinifier.git",
-                "reference": "60728bfca3ecb5bc32396a8587e375c08444e194"
+                "reference": "3b2f851a91e650546b7bd1b78ed5814e3b498eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ArjanSchouten/HtmlMinifier/zipball/60728bfca3ecb5bc32396a8587e375c08444e194",
-                "reference": "60728bfca3ecb5bc32396a8587e375c08444e194",
+                "url": "https://api.github.com/repos/ArjanSchouten/HtmlMinifier/zipball/3b2f851a91e650546b7bd1b78ed5814e3b498eaf",
+                "reference": "3b2f851a91e650546b7bd1b78ed5814e3b498eaf",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "source": "https://github.com/ArjanSchouten/HtmlMinifier/tree/master",
                 "issues": "https://github.com/ArjanSchouten/HtmlMinifier/issues"
             },
-            "time": "2017-09-15T08:33:56+00:00"
+            "time": "2017-09-15T10:07:38+00:00"
         },
         {
             "name": "doctrine/inflector",
