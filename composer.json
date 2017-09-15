@@ -1,0 +1,40 @@
+{
+    "name": "arjanschouten/laravelhtmlminifier",
+    "description": "HTML minifier for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ArjanSchouten",
+            "email": "mail@arjan-schouten.nl"
+        }
+    ],
+    "require": {
+        "ArjanSchouten/HtmlMinifier": "dev-master",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+        "illuminate/view": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+        "illuminate/console": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArjanSchouten\\LaravelHtmlMinifier\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ArjanSchouten\\LaravelHtmlMinifier\\HtmlMinifierServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ArjanSchouten/HtmlMinifier"
+        }
+    ]
+}
